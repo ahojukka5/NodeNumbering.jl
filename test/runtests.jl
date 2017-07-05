@@ -33,6 +33,12 @@ function create_adjacency_matrix(elements::Dict{Int, Vector{Int}}, element_types
     println(element_types)
 end
 
+function create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Vector{Symbol}})
+    # write code here
+    println(elements)
+    println(element_types)
+end
+
 function calculate_bandwidth(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Vector{Symbol}})
     # write code here
     println(elements)
@@ -72,6 +78,21 @@ end
        ]
     adj = create_adjacency_matrix(elements, element_types)
     @test adj == expected
+end
+
+@testset "create adjacency graph" begin
+    expected = Dict(
+        1 => [3, 8, 9],
+        2 => [3, 8, 7],
+        3 => [1, 2],
+        4 => [8, 9],
+        5 => [7, 8],
+        6 => [2, 7],
+        7 => [5, 2, 6],
+        8 => [1, 2, 4, 5],
+        9 => [1, 4])
+    result = create_adjacency_graph(elements, element_types)
+    @test result == expected
 end
 
 @testset "test calculate bandwidth of graph" begin
