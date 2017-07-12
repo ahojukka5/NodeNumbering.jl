@@ -29,12 +29,7 @@ using NodeNumbering
             3 => :Quad4,
             4 => :Tri3)
 
-            element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
-           :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
-           :Tri3 => [[2,3], [1,3], [1,2]],
-           :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]])
-           
-    result = NodeNumbering.create_adjacency_graph(elements, element_types, element_adjacencies)
+    result = NodeNumbering.create_adjacency_graph(elements, element_types)
     result_bool = true
     for (k, v) in expected
         if (length(intersect(v, result[k]))==length(v))==false

@@ -16,12 +16,12 @@ Notes
 -----
 [1] https://en.wikipedia.org/wiki/Band_matrix
 """
-element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
+global const element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
    :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
    :Tri3 => [[2,3], [1,3], [1,2]],
    :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]])
 
-function create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol}, element_adjacencies::Dict{Symbol, Vector{Vector{Int}}})
+function create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol})
     neighbours = Dict{Int, Vector{Int}}()
     for (k, nodes) in elements
         eltype = element_types[k]
