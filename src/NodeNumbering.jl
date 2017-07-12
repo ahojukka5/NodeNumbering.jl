@@ -45,24 +45,6 @@ function is_connected(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int,
     println(element_types)
 end
 
-"""
-Create adjacency graph.
-
-Parameters
-----------
-elements: dict of element connectivities
-element_types: dict of element types
-
-Returns
--------
-dict, where key is node id and value is list of adjacent nodes, e.g.
-8 => [1, 2, 4, 5] and so on.
-"""
-function create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Vector{Symbol}})
-    # write code here
-    println(elements)
-    println(element_types)
-end
 
 """
 Create adjacency matrix from adjacency graph.
@@ -87,5 +69,6 @@ function create_adjacency_matrix(elements::Dict{Int, Vector{Int}}, element_types
 end
 
 include("calc_bw.jl")
+include("create_adjacency_graph.jl")
 
 end
