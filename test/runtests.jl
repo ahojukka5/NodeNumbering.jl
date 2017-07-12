@@ -71,3 +71,7 @@ end
     @test result == expected
 end
 =#
+
+@testset "NodeNumbering.jl" begin
+    include("test_calc_bw.jl")
+end

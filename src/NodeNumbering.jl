@@ -86,4 +86,6 @@ function create_adjacency_matrix(elements::Dict{Int, Vector{Int}}, element_types
     println(element_types)
 end
 
+include("calc_bw.jl")
+
 end
