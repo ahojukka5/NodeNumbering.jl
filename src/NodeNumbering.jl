@@ -70,5 +70,6 @@ end
 
 include("calc_bw.jl")
 include("create_adjacency_graph.jl")
+include("RCM.jl")
 
 end
