@@ -16,10 +16,9 @@ Notes
 -----
 [1] https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm
 """
-function RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int})
+function RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P)
     n=length(adjacency)
     R = Int[] #Creating the CM-ordered list
-    P = collect(keys(degrees))[indmin(collect(values(degrees)))] #Picking up P = parent node from degrees
     push!(R, P) #Adding parent to the result list
     for i=1:n
         t=adjacency[R[i]]
