@@ -1,8 +1,9 @@
 # This file is a part of project JuliaFEM.
-# License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE.md
+# License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE
 
 using NodeNumbering
 
+P = 9
 
 adjacency = Dict(
     1 => [3, 8, 9],
@@ -28,6 +29,6 @@ degrees = Dict(
 
 @testset "The Reverse Cuthill-McKee algorithm" begin
     expected = [6,7,2,5,3,8,1,4,9]
-    result = NodeNumbering.RCM(adjacency, degrees)
+    result = NodeNumbering.RCM(adjacency, degrees, P)
     @test result == expected
 end
