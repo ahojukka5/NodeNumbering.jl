@@ -2,15 +2,19 @@
 # License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE.md
 
 """
-Calculate the Reverse Cuthill-McKee Algorithm for the adjacency graph G.
+    RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P)
+
+Calculate the Reverse Cuthill-McKee Algorithm for the adjacency graph.
 
 Parameters
 ----------
-G   Dict; key is node number and value is a list of adjacent nodes
+adjacency = A Dict where the keys are node numbers and the values are lists of adjacent nodes.
+degrees = A Dict where the keys are node numbers and the values are degrees of the nodes.
+P = The starting node for the algorithm. It is one of the lowest degree nodes in the graph.
 
 Returns
 -------
-Integer
+neworder = A list where the nodes are ordered with the RCM Algorithm.
 
 Notes
 -----
