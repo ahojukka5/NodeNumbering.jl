@@ -1,7 +1,9 @@
 language: julia
 os:
-  - linux
+    - linux
 julia:
-  - release
-  - nightly
-  - 0.5.2
+    - release
+    - nightly
+    - 0.5.2
+after_success:
+    - julia -e 'cd(Pkg.dir("NodeNumbering")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
