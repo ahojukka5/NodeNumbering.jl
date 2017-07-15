@@ -1,0 +1,24 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "NodeNumbering.jl documentation\n\n\n\n\nNodeNumbering.jl documentation\n\n\nFunctions\n\n\nIndex\n\n\n\n\n\n\n\n\n\n\nFunctions\n\n\n#\n\n\nNodeNumbering.calculate_bandwidth\n \n \nMethod\n.\n\n\ncalculate_bandwidth(G::Dict{Int, Vector{Int}})\n\n\n\n\nCalculate bandwidth of graph \nG\n. The bandwidth of the matrix is number \nk\n such that \nA_{ij} = 0\n if \n|i-j| > k\n.\n\n\nExamples\n\n\njulia\n G = Dict(\n           1 =\n [3, 8, 9],\n           2 =\n [3, 8, 7],\n           3 =\n [1, 2],\n           4 =\n [8, 9],\n           5 =\n [7, 8],\n           6 =\n [2, 7],\n           7 =\n [5, 2, 6],\n           8 =\n [1, 2, 4, 5],\n           9 =\n [1, 4])\njulia\n calculate_bandwidth(G)\n17\n\n\n\n\nReferences\n\n\n\n\nWikipedia contributors. \"Band matrix.\" Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 28 Apr. 2017. Web. 15 Jul. 2017. https://en.wikipedia.org/wiki/Band_matrix.\n\n\n\n\nsource\n\n\n\n\nIndex\n\n\n\n\nNodeNumbering.calculate_bandwidth", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#nodenumberingjl-documentation", 
+            "text": "NodeNumbering.jl documentation  Functions  Index", 
+            "title": "NodeNumbering.jl documentation"
+        }, 
+        {
+            "location": "/#functions", 
+            "text": "#  NodeNumbering.calculate_bandwidth     Method .  calculate_bandwidth(G::Dict{Int, Vector{Int}})  Calculate bandwidth of graph  G . The bandwidth of the matrix is number  k  such that  A_{ij} = 0  if  |i-j| > k .  Examples  julia  G = Dict(\n           1 =  [3, 8, 9],\n           2 =  [3, 8, 7],\n           3 =  [1, 2],\n           4 =  [8, 9],\n           5 =  [7, 8],\n           6 =  [2, 7],\n           7 =  [5, 2, 6],\n           8 =  [1, 2, 4, 5],\n           9 =  [1, 4])\njulia  calculate_bandwidth(G)\n17  References   Wikipedia contributors. \"Band matrix.\" Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 28 Apr. 2017. Web. 15 Jul. 2017. https://en.wikipedia.org/wiki/Band_matrix.   source", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/#index", 
+            "text": "NodeNumbering.calculate_bandwidth", 
+            "title": "Index"
+        }
+    ]
+}
