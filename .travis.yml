@@ -5,18 +5,16 @@ julia:
     - release
     - nightly
     - 0.5.2
-env:
-    - JL_PKG = NodeNumbering
 before_script:
-    - julia --color=yes -e "Pkg.clone(pwd())"
-    - julia --color=yes -e "Pkg.add(\"Coverage\")"
-    - julia --color=yes -e "Pkg.add(\"Documenter\")"
-    - julia --color=yes -e "Pkg.add(\"Lint\")"
+    - julia --color=yes -e 'Pkg.clone(pwd())'
+    - julia --color=yes -e 'Pkg.add("Coverage")'
+    - julia --color=yes -e 'Pkg.add("Documenter")'
+    - julia --color=yes -e 'Pkg.add("Lint")'
 script:
-    - julia --color=yes -e "Pkg.build(\"${JL_PKG}\")"
-    - julia --color=yes --check-bounds=yes -e "Pkg.test(\"${JL_PKG}\", coverage=true)"
-    - julia --color=yes -e "cd(Pkg.dir(\"${JL_PKG}\", \"test\")); include(\"run_lint.jl\")"
-    - julia --color=yes -e "cd(Pkg.dir(\"${JL_PKG}\", \"docs\")); include(\"make.jl\")"
+    - julia --color=yes -e 'Pkg.build("NodeNumbering")'
+    - julia --color=yes -e 'Pkg.test("NodeNumbering", coverage=true)'
+    - julia --color=yes -e 'cd(Pkg.dir("NodeNumbering", "test")); include("run_lint.jl")'
+    - julia --color=yes -e 'cd(Pkg.dir("NodeNumbering", "docs")); include("make.jl")'
 after_success:
-    - julia --color=yes -e "cd(Pkg.dir(\"${JL_PKG}\")); using Coverage; Coveralls.submit(Coveralls.process_folder())"
-    - julia --color=yes -e "cd(Pkg.dir(\"${JL_PKG}\", \"docs\")); include(\"deploy.jl\")"
+    - julia --color=yes -e 'cd(Pkg.dir("NodeNumbering")); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+    - julia --color=yes -e 'cd(Pkg.dir("NodeNumbering", "docs")); include("deploy.jl")'
