@@ -5,6 +5,8 @@ julia:
     - release
     - nightly
     - 0.5.2
+env:
+    - JL_PKG = NodeNumbering
 before_script:
     - julia --color=yes -e "Pkg.clone(pwd())"
     - julia --color=yes -e "Pkg.add(\"Coverage\")"
