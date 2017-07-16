@@ -16,7 +16,7 @@ Notes
 -----
 [1] https://en.wikipedia.org/wiki/Band_matrix
 """
-global const element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
+const element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
    :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
    :Tri3 => [[2,3], [1,3], [1,2]],
    :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]])
@@ -24,8 +24,7 @@ global const element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
 function create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol})
     neighbours = Dict{Int, Vector{Int}}()
     for (k, nodes) in elements
-        eltype = element_types[k]
-        neighbour_indices = element_adjacencies[eltype]
+        neighbour_indices = element_adjacencies[element_types[k]]
         for (i, node) in enumerate(nodes)
             node_neighbours = nodes[neighbour_indices[i]]
             if haskey(neighbours, node)

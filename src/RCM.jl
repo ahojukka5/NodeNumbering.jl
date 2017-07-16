@@ -17,7 +17,7 @@ new_order = A list where the nodes are ordered with the RCM Algorithm.
 # References
 [1] https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm
 """
-function RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)::Vector{Int}
+function RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
     n = length(adjacency)
     R = Int[P]  # Creating the CM-ordered list
     for i=1:n
