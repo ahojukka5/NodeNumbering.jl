@@ -4,7 +4,6 @@
 using Documenter
 using NodeNumbering
 
-makedocs(
-    modules = [NodeNumbering],
-    checkdocs = :all,
-    strict = true)
+deploydocs(
+    deps = Deps.pip("mkdocs", "python-markdown-math"),
+    repo = "github.com/JuliaFEM/NodeNumbering.jl.git")
