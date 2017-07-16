@@ -3,6 +3,12 @@
 ```@contents
 ```
 
+```@meta
+DocTestSetup = quote
+    using NodeNumbering: calculate_bandwidth
+end
+```
+
 ## Functions
 
 ```@docs
