@@ -13,6 +13,7 @@ end
 
 ```@docs
 NodeNumbering.calculate_bandwidth(G::Dict{Int, Vector{Int}})
+NodeNumbering.RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
 ```
 
 ## Index

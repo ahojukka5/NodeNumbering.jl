@@ -2,7 +2,7 @@
 # License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE.md
 
 """
-    RCM(adjacency, degrees, P)
+    RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
 
 Calculate the Reverse Cuthill-McKee Algorithm for the adjacency graph.
 
