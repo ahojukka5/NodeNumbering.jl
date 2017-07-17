@@ -2,29 +2,71 @@
 # License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE
 
 """
-    The element adjacency list.
-"""
-const element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
-   :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
-   :Tri3 => [[2,3], [1,3], [1,2]],
-   :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]])
-
-"""
    create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol})
 
-Parameters
-----------
-G   Dict; key is node number and value is a list of adjacent nodes
+Create a Dict that shows all nodes and their adjacencies.
 
-Returns
--------
-Integer
+# Constants
 
-Notes
------
-[1] https://en.wikipedia.org/wiki/Band_matrix
+The element dict, the element_types dict and the element_adjacencies dict.
 """
-function create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol})
+
+elements = Dict{Int, Vector}(
+           1 => [9, 1, 8, 4],
+           2 => [1, 3, 2, 8],
+           3 => [8, 2, 7, 5],
+           4 => [2, 6, 7]);
+
+element_types = Dict{Int, Symbol}(
+                1 => :Quad4,
+                2 => :Quad4,
+                3 => :Quad4,
+                4 => :Tri3);
+
+element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
+                      :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
+                      :Tri3 => [[2,3], [1,3], [1,2]],
+                      :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]]);
+
+"""
+# Examples
+
+```jldoctest
+julia> elements = Dict(
+                  1 => [9, 1, 8, 4],
+                  2 => [1, 3, 2, 8],
+                  3 => [8, 2, 7, 5],
+                  4 => [2, 6, 7]);
+
+julia> element_types = Dict(
+                       1 => :Quad4,
+                       2 => :Quad4,
+                       3 => :Quad4,
+                       4 => :Tri3);
+
+julia> element_adjacencies = Dict(
+                             :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
+                             :Tri3 => [[2,3], [1,3], [1,2]],
+                             :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]]);
+
+julia> create_adjacency_graph(elements, element_types, element_adjacencies)
+Dict(
+1 => [3, 8, 9],
+2 => [3, 8, 7],
+3 => [1, 2],
+4 => [8, 9],
+5 => [7, 8],
+6 => [2, 7],
+7 => [5, 2, 6],
+8 => [1, 2, 4, 5],
+9 => [1, 4]);
+```
+
+# References
+
+* Wikipedia contributors. "Adjacency list". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 7 Jun. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Adjacency_list
+"""
+function create_adjacency_graph(elements::Dict{Int, Vector}, element_types::Dict{Int, Symbol}, element_adjacencies::Dict{Symbol, Vector{Vector{Int}}})
     neighbours = Dict{Int, Vector{Int}}()
     for (k, nodes) in elements
         neighbour_indices = element_adjacencies[element_types[k]]
