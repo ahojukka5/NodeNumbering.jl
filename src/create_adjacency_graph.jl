@@ -9,26 +9,7 @@ Create a Dict that shows all nodes and their adjacencies.
 # Constants
 
 The element dict, the element_types dict and the element_adjacencies dict.
-"""
 
-elements = Dict{Int, Vector}(
-           1 => [9, 1, 8, 4],
-           2 => [1, 3, 2, 8],
-           3 => [8, 2, 7, 5],
-           4 => [2, 6, 7]);
-
-element_types = Dict{Int, Symbol}(
-                1 => :Quad4,
-                2 => :Quad4,
-                3 => :Quad4,
-                4 => :Tri3);
-
-element_adjacencies = Dict{Symbol, Vector{Vector{Int}}}(
-                      :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
-                      :Tri3 => [[2,3], [1,3], [1,2]],
-                      :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]]);
-
-"""
 # Examples
 
 ```jldoctest

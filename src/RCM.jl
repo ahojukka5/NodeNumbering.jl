@@ -9,33 +9,7 @@ Calculate the Reverse Cuthill-McKee Algorithm for the adjacency graph.
 # Constants
 
 The adjacency dict, the degrees dict and the starting node P. In this example P is given.
-"""
 
-adjacency = Dict(
-            1 => [3, 8, 9],
-            2 => [3, 8, 7],
-            3 => [1, 2],
-            4 => [8, 9],
-            5 => [7, 8],
-            6 => [2, 7],
-            7 => [5, 2, 6],
-            8 => [1, 2, 4, 5],
-            9 => [1, 4]);
-
-degrees = Dict(
-          1 => 3,
-          2 => 4,
-          3 => 2,
-          4 => 2,
-          5 => 2,
-          6 => 2,
-          7 => 3,
-          8 => 4,
-          9 => 2);
-
-P = 9
-
-"""
 # Examples
 
 ```jldoctest
