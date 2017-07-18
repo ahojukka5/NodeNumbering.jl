@@ -5,6 +5,7 @@ module NodeNumbering
 
 include("calc_bw.jl")
 include("create_adjacency_graph.jl")
+include("node_degrees.jl")
 include("RCM.jl")
 
 end

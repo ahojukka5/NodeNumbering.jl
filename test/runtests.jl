@@ -75,5 +75,6 @@ end
 @testset "NodeNumbering.jl" begin
     include("test_calc_bw.jl")
     include("test_create_adjacency_graph.jl")
+		include("node_degrees.jl")
     include("test_RCM.jl")
 end
