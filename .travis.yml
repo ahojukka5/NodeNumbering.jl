@@ -4,7 +4,6 @@ os:
 julia:
     - release
     - nightly
-    - 0.5.2
 after_success:
     - julia -e 'Pkg.add("Coverage")'
     - julia -e 'cd(Pkg.dir("NodeNumbering")); using Coverage; Coveralls.submit(Coveralls.process_folder())'
