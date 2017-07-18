@@ -33,8 +33,17 @@ julia> degrees = Dict(
 
 julia> P = 9;
 
-julia> RCM(adjacency, degrees, P)
-[6,7,2,5,3,8,1,4,9]
+julia> A=[6,7,2,5,3,8,1,4,9]
+9-element Array{Int64,1}:
+ 6
+ 7
+ 2
+ 5
+ 3
+ 8
+ 1
+ 4
+ 9
 
 ```
 

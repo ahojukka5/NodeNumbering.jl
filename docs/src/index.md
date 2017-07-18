@@ -6,6 +6,8 @@
 ```@meta
 DocTestSetup = quote
     using NodeNumbering: calculate_bandwidth
+    using NodeNumbering: create_adjacency_graph
+    using NodeNumbering: RCM
 end
 ```
 
@@ -22,3 +24,4 @@ NodeNumbering.create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_t
 
 ```@index
 ```
+
