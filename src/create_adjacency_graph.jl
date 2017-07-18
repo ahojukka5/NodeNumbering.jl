@@ -3,7 +3,7 @@
 """
     element_adjacencies
 
-The Dict shows some element types and blaklslkdj
+The Dict shows some element types and their node adjacencies. For example the element type Quad4 has four nodes/element so that node No. 1 is adjacent to nodes 2 and 4 etc.
 """
 const element_adjacencies = Dict(
                             :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
