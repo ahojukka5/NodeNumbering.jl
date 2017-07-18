@@ -2,20 +2,54 @@
 # License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE.md
 
 """
-    RCM(adjacency, degrees, P)
+    RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
 
 Calculate the Reverse Cuthill-McKee Algorithm for the adjacency graph.
 
-# Parameters
-adjacency = A Dict where the keys are node numbers and the values are lists of adjacent nodes.
-degrees = A Dict where the keys are node numbers and the values are degrees of the nodes.
-P = The starting node for the algorithm. It is one of the lowest degree nodes in the graph.
+# Examples
 
-# Returns
-new_order = A list where the nodes are ordered with the RCM Algorithm.
+```jldoctest
+julia> adjacency = Dict(
+                   1 => [3, 8, 9],
+                   2 => [3, 8, 7],
+                   3 => [1, 2],
+                   4 => [8, 9],
+                   5 => [7, 8],
+                   6 => [2, 7],
+                   7 => [5, 2, 6],
+                   8 => [1, 2, 4, 5],
+                   9 => [1, 4]);
+
+julia> degrees = Dict(
+                 1 => 3,
+                 2 => 4,
+                 3 => 2,
+                 4 => 2,
+                 5 => 2,
+                 6 => 2,
+                 7 => 3,
+                 8 => 4,
+                 9 => 2);
+
+julia> P = 9;
+
+julia> RCM(adjacency, degrees, P)
+9-element Array{Int64,1}:
+ 6
+ 7
+ 2
+ 5
+ 3
+ 8
+ 1
+ 4
+ 9
+
+```
 
 # References
-[1] https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm
+
+* Wikipedia contributors. "Cuthill–McKee algorithm". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 11 Jul. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm
 """
 function RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
     n = length(adjacency)

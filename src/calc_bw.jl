@@ -19,9 +19,11 @@ julia> G = Dict(
            6 => [2, 7],
            7 => [5, 2, 6],
            8 => [1, 2, 4, 5],
-           9 => [1, 4])
+           9 => [1, 4]);
+
 julia> calculate_bandwidth(G)
 17
+
 ```
 
 # References
