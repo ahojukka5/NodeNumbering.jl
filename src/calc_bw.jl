@@ -23,6 +23,7 @@ julia> G = Dict(
 
 julia> calculate_bandwidth(G)
 17
+
 ```
 
 # References

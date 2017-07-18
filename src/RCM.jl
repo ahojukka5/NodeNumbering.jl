@@ -20,10 +20,22 @@ julia> adjacency = Dict(
                    8 => [1, 2, 4, 5],
                    9 => [1, 4]);
 
-julia> P = 9
+julia> degrees = Dict(
+                 1 => 3,
+                 2 => 4,
+                 3 => 2,
+                 4 => 2,
+                 5 => 2,
+                 6 => 2,
+                 7 => 3,
+                 8 => 4,
+                 9 => 2);
+
+julia> P = 9;
 
 julia> RCM(adjacency, degrees, P)
 [6,7,2,5,3,8,1,4,9]
+
 ```
 
 # References
