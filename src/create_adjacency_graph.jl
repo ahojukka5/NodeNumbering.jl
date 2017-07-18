@@ -1,14 +1,19 @@
 # This file is a part of project JuliaFEM.
 # License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE
+"""
+    element_adjacencies
+
+The Dict shows some element types and blaklslkdj
+"""
+const element_adjacencies = Dict(
+                            :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
+                            :Tri3 => [[2,3], [1,3], [1,2]],
+                            :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]]);
 
 """
     create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol})
 
 Create a Dict that shows all nodes and their adjacencies.
-
-# Constants
-
-The element dict, the element_types dict and the element_adjacencies dict.
 
 # Examples
 
@@ -25,12 +30,7 @@ julia> element_types = Dict(
                        3 => :Quad4,
                        4 => :Tri3);
 
-julia> element_adjacencies = Dict(
-                             :Quad4 => [[2, 4], [1, 3], [2, 4], [1, 3]],
-                             :Tri3 => [[2,3], [1,3], [1,2]],
-                             :Tet4 => [[2,3,4], [1,3,4], [1,2,4], [1,2,3]]);
-
-julia> create_adjacency_graph(elements, element_types, element_adjacencies)
+julia> create_adjacency_graph(elements, element_types)
 Dict(
 1 => [3, 8, 9],
 2 => [3, 8, 7],
@@ -47,7 +47,7 @@ Dict(
 
 * Wikipedia contributors. "Adjacency list". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 7 Jun. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Adjacency_list
 """
-function create_adjacency_graph(elements::Dict{Int, Vector}, element_types::Dict{Int, Symbol}, element_adjacencies::Dict{Symbol, Vector{Vector{Int}}})
+function create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol})
     neighbours = Dict{Int, Vector{Int}}()
     for (k, nodes) in elements
         neighbour_indices = element_adjacencies[element_types[k]]
