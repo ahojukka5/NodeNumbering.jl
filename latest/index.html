@@ -122,9 +122,46 @@
 </code></pre>
 
 <p>The Dict shows some element types and their node adjacencies. For example the element type Quad4 has four nodes/element so that node No. 1 is adjacent to nodes 2 and 4 etc.</p>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/6b98f9f467b62499776646d16ca9f1da588e9ee4/src/create_adjacency_graph.jl#L3-L7' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/880ef0a7ba8a3264ea3a85f21cb8484dec69439b/src/create_adjacency_graph.jl#L3-L7' class='documenter-source'>source</a><br></p>
 <p><a id='Functions-1'></a></p>
 <h2 id="functions">Functions</h2>
+<p><a id='NodeNumbering.node_degrees-Tuple{Dict{Int64,Array{Int64,1}}}' href='#NodeNumbering.node_degrees-Tuple{Dict{Int64,Array{Int64,1}}}'>#</a>
+<strong><code>NodeNumbering.node_degrees</code></strong> &mdash; <em>Method</em>.</p>
+<pre><code>node_degrees(adjacency::Dict{Int, Vector{Int}})
+</code></pre>
+
+<p>Calculate the degrees for the adjacency graph nodes. Node degree = number of nodes a certain node is adjacent to.</p>
+<p><strong>Examples</strong></p>
+<pre><code class="julia-repl">julia&gt; adjacency = Dict{Int, Vector{Int}}(
+                   1 =&gt; [3, 8, 9],
+                   2 =&gt; [3, 8, 7],
+                   3 =&gt; [1, 2],
+                   4 =&gt; [8, 9],
+                   5 =&gt; [7, 8],
+                   6 =&gt; [2, 7],
+                   7 =&gt; [5, 2, 6],
+                   8 =&gt; [1, 2, 4, 5],
+                   9 =&gt; [1, 4]);
+
+julia&gt; node_degrees(adjacency::Dict{Int, Vector{Int}})
+Dict{Int64,Int64} with 9 entries:
+  7 =&gt; 3
+  4 =&gt; 2
+  9 =&gt; 2
+  2 =&gt; 3
+  3 =&gt; 2
+  5 =&gt; 2
+  8 =&gt; 4
+  6 =&gt; 2
+  1 =&gt; 3
+
+</code></pre>
+
+<p><strong>References</strong></p>
+<ul>
+<li>Wikipedia contributors. "Degree (graph theory)". Wikipedia, The Free Encyclopedia. 24 Nov. 2016. Web. 18 Jul. 2017. https://en.wikipedia.org/wiki/Degree_(graph_theory)</li>
+</ul>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/880ef0a7ba8a3264ea3a85f21cb8484dec69439b/src/node_degrees.jl#L4-L40' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.calculate_bandwidth-Tuple{Dict{Int64,Array{Int64,1}}}' href='#NodeNumbering.calculate_bandwidth-Tuple{Dict{Int64,Array{Int64,1}}}'>#</a>
 <strong><code>NodeNumbering.calculate_bandwidth</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>calculate_bandwidth(G::Dict{Int, Vector{Int}})
@@ -152,7 +189,7 @@ julia&gt; calculate_bandwidth(G)
 <ul>
 <li>Wikipedia contributors. "Band matrix." Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 28 Apr. 2017. Web. 15 Jul. 2017. https://en.wikipedia.org/wiki/Band_matrix.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/6b98f9f467b62499776646d16ca9f1da588e9ee4/src/calc_bw.jl#L4-L32' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/880ef0a7ba8a3264ea3a85f21cb8484dec69439b/src/calc_bw.jl#L4-L32' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.RCM-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Int64},Int64}' href='#NodeNumbering.RCM-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Int64},Int64}'>#</a>
 <strong><code>NodeNumbering.RCM</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
@@ -202,7 +239,7 @@ julia&gt; RCM(adjacency, degrees, P)
 <ul>
 <li>Wikipedia contributors. "Cuthill–McKee algorithm". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 11 Jul. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/6b98f9f467b62499776646d16ca9f1da588e9ee4/src/RCM.jl#L4-L53' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/880ef0a7ba8a3264ea3a85f21cb8484dec69439b/src/RCM.jl#L4-L53' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.create_adjacency_graph-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Symbol}}' href='#NodeNumbering.create_adjacency_graph-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Symbol}}'>#</a>
 <strong><code>NodeNumbering.create_adjacency_graph</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol})
@@ -240,7 +277,7 @@ Dict{Int64,Array{Int64,1}} with 9 entries:
 <ul>
 <li>Wikipedia contributors. "Adjacency list". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 7 Jun. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Adjacency_list</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/6b98f9f467b62499776646d16ca9f1da588e9ee4/src/create_adjacency_graph.jl#L13-L50' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/880ef0a7ba8a3264ea3a85f21cb8484dec69439b/src/create_adjacency_graph.jl#L13-L50' class='documenter-source'>source</a><br></p>
 <p><a id='Index-1'></a></p>
 <h2 id="index">Index</h2>
 <ul>
@@ -248,6 +285,7 @@ Dict{Int64,Array{Int64,1}} with 9 entries:
 <li><a href=".#NodeNumbering.RCM-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Int64},Int64}"><code>NodeNumbering.RCM</code></a></li>
 <li><a href=".#NodeNumbering.calculate_bandwidth-Tuple{Dict{Int64,Array{Int64,1}}}"><code>NodeNumbering.calculate_bandwidth</code></a></li>
 <li><a href=".#NodeNumbering.create_adjacency_graph-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Symbol}}"><code>NodeNumbering.create_adjacency_graph</code></a></li>
+<li><a href=".#NodeNumbering.node_degrees-Tuple{Dict{Int64,Array{Int64,1}}}"><code>NodeNumbering.node_degrees</code></a></li>
 </ul>
               
             </div>
@@ -290,5 +328,5 @@ Dict{Int64,Array{Int64,1}} with 9 entries:
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-07-18 14:43:33
+Build Date UTC : 2017-07-19 09:38:06
 -->
