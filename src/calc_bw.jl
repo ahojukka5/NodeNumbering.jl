@@ -1,4 +1,4 @@
-# This file is a part of project JuliaFEM.
+# This file is a part of JuliaFEM.
 # License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE
 
 """
