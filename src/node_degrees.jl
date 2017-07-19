@@ -1,5 +1,5 @@
-# This file is a part of project JuliaFEM.
-# License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE.md
+# This file is a part of JuliaFEM.
+# License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE
 
 """
     node_degrees(adjacency::Dict{Int, Vector{Int}})
