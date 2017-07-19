@@ -9,7 +9,7 @@ Calculate the degrees for the adjacency graph nodes. Node degree = number of nod
 # Examples
 
 ```jldoctest
-julia> adjacency = Dict(
+julia> adjacency = Dict{Int, Vector{Int}}(
                    1 => [3, 8, 9],
                    2 => [3, 8, 7],
                    3 => [1, 2],

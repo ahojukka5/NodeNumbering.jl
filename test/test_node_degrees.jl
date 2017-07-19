@@ -15,7 +15,7 @@ adjacency = Dict(
     9 => [1, 4])
 
 @testset "node degrees" begin
-    expected = Dict(
+    E = Dict(
         1 => 3,
         2 => 4,
         3 => 2,
@@ -25,6 +25,6 @@ adjacency = Dict(
         7 => 3,
         8 => 4,
         9 => 2)
-    result = degrees(adjacency)
-    @test result == expected
+    result = NodeNumbering.node_degrees(adjacency)
+    @test result == E
 end
