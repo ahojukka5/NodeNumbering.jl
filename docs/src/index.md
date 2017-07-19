@@ -8,6 +8,7 @@ DocTestSetup = quote
     using NodeNumbering: calculate_bandwidth
     using NodeNumbering: create_adjacency_graph
     using NodeNumbering: RCM
+    using NodeNumbering: node_degrees
 end
 ```
 
