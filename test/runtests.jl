@@ -72,9 +72,24 @@ end
 end
 =#
 
-@testset "NodeNumbering.jl" begin
-    include("test_calc_bw.jl")
-    include("test_create_adjacency_graph.jl")
-		include("test_node_degrees.jl")
-    include("test_RCM.jl")
+# add unit test files to this list:
+test_files = String[]
+push!(test_files, "test_calc_bw.jl")
+push!(test_files, "test_create_adjacency_graph.jl")
+push!(test_files, "test_node_degrees.jl")
+push!(test_files, "test_RCM.jl")
+
+using TimerOutputs
+const to = TimerOutput()
+timeit(to, "Run unit tests") do
+    @testset "NodeNumbering.jl" begin
+        for fn in test_files
+            timeit(to, fn) do
+                include(fn)
+            end
+        end
+    end
 end
+println()
+println("Test statistics:")
+println(to)
