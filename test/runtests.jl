@@ -81,12 +81,10 @@ push!(test_files, "test_RCM.jl")
 
 using TimerOutputs
 const to = TimerOutput()
-timeit(to, "Run unit tests") do
-    @testset "NodeNumbering.jl" begin
-        for fn in test_files
-            timeit(to, fn) do
-                include(fn)
-            end
+@testset "NodeNumbering.jl" begin
+    for fn in test_files
+        timeit(to, fn) do
+            include(fn)
         end
     end
 end
