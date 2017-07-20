@@ -2,7 +2,6 @@
 # License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE
 
 module NodeNumbering
-using PyPlot
 
 include("calc_bw.jl")
 include("create_adjacency_graph.jl")
