@@ -9,5 +9,6 @@ include("node_degrees.jl")
 include("RCM.jl")
 include("renumbering.jl")
 include("create_RCM_adjacency.jl")
+include("adjacency_visualization.jl")
 
 end
