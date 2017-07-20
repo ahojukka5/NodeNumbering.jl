@@ -77,4 +77,6 @@ end
     include("test_create_adjacency_graph.jl")
 		include("test_node_degrees.jl")
     include("test_RCM.jl")
+		include("test_renumbering.jl")
+		include("test_create_RCM_adjacency.jl")
 end
