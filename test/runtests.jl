@@ -80,6 +80,8 @@ push!(test_files, "test_calc_bw.jl")
 push!(test_files, "test_create_adjacency_graph.jl")
 push!(test_files, "test_node_degrees.jl")
 push!(test_files, "test_RCM.jl")
+push!(test_files, "test_create_RCM_adjacency.jl")
+push!(test_files, "test_renumbering.jl")
 
 using TimerOutputs
 const to = TimerOutput()
