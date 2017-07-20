@@ -6,20 +6,22 @@ using NodeNumbering
 using Base.Test
 
 function get_test_data()
-    #= testdata from: https://people.sc.fsu.edu/~jburkardt/m_src/rcm/rcm.html
+    #= testdata from:
+    https://people.sc.fsu.edu/~jburkardt/m_src/rcm/rcm.html
 
-		   5--7--6
-		   |  | /
-		4--8--2
-		|  |  |
-		9--1--3
-	=#
+       5--7--6
+       |  | /
+    4--8--2
+    |  |  |
+    9--1--3
 
-	elements = Dict{Int, Vector{Int}}(
-	    1 => [9, 1, 8, 4],
-	    2 => [1, 3, 2, 8],
-	    3 => [2, 7, 5, 8],
-	    4 => [2, 6, 7])
+    =#
+
+    elements = Dict{Int, Vector{Int}}(
+        1 => [9, 1, 8, 4],
+        2 => [1, 3, 2, 8],
+        3 => [2, 7, 5, 8],
+        4 => [2, 6, 7])
 
     element_types = Dict{Int, Vector{Symbol}}(
         1 => :Quad4,
@@ -75,6 +77,6 @@ end
 @testset "NodeNumbering.jl" begin
     include("test_calc_bw.jl")
     include("test_create_adjacency_graph.jl")
-		include("test_node_degrees.jl")
+    include("test_node_degrees.jl")
     include("test_RCM.jl")
 end
