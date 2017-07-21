@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Renumber FE nodes">
-  <meta name="author" content="ahojukka5">
+  <meta name="description" content="site_description">
+  <meta name="author" content="site_author">
   <link rel="shortcut icon" href="./img/favicon.ico">
   <title>Home - NodeNumbering.jl</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
@@ -122,7 +122,7 @@
 </code></pre>
 
 <p>The Dict shows some element types and their node adjacencies. For example the element type Quad4 has four nodes/element so that node No. 1 is adjacent to nodes 2 and 4 etc.</p>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/8dae1414f540d4b416824018d9a0b345d092c48c/src/create_adjacency_graph.jl#L3-L7' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/01799159fe867ed6030d238b655d168d877d085e/src/create_adjacency_graph.jl#L3-L7' class='documenter-source'>source</a><br></p>
 <p><a id='Functions-1'></a></p>
 <h2 id="functions">Functions</h2>
 <p><a id='NodeNumbering.adjacency_visualization-Tuple{Dict{Int64,Array{Int64,1}}}' href='#NodeNumbering.adjacency_visualization-Tuple{Dict{Int64,Array{Int64,1}}}'>#</a>
@@ -157,7 +157,7 @@ julia&gt; adjacency_visualization(RCM_adjacency)
 
 </code></pre>
 
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/8dae1414f540d4b416824018d9a0b345d092c48c/src/adjacency_visualization.jl#L4-L37' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/01799159fe867ed6030d238b655d168d877d085e/src/adjacency_visualization.jl#L4-L37' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.create_RCM_adjacency-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Int64}}' href='#NodeNumbering.create_RCM_adjacency-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Int64}}'>#</a>
 <strong><code>NodeNumbering.create_RCM_adjacency</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>create_RCM_adjacency(adjacency::Dict{Int, Vector{Int}}, finalorder::Dict{Int, Int})
@@ -205,7 +205,7 @@ Dict{Int64,Array{Int64,1}} with 9 entries:
 <ul>
 <li>Wikipedia contributors. "Adjacency list". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 7 Jun. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Adjacency_list</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/8dae1414f540d4b416824018d9a0b345d092c48c/src/create_RCM_adjacency.jl#L4-L51' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/01799159fe867ed6030d238b655d168d877d085e/src/create_RCM_adjacency.jl#L4-L51' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.renumbering-Tuple{Array{Int64,N} where N}' href='#NodeNumbering.renumbering-Tuple{Array{Int64,N} where N}'>#</a>
 <strong><code>NodeNumbering.renumbering</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>renumbering(neworder::Array{Int})
@@ -233,7 +233,7 @@ Dict{Int64,Int64} with 9 entries:
 <ul>
 <li>Wikipedia contributors. "Cuthill–McKee algorithm". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 11 Jul. 2017. Web. 20 Jul. 2017. https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/8dae1414f540d4b416824018d9a0b345d092c48c/src/renumbering.jl#L4-L31' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/01799159fe867ed6030d238b655d168d877d085e/src/renumbering.jl#L4-L31' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.node_degrees-Tuple{Dict{Int64,Array{Int64,1}}}' href='#NodeNumbering.node_degrees-Tuple{Dict{Int64,Array{Int64,1}}}'>#</a>
 <strong><code>NodeNumbering.node_degrees</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>node_degrees(adjacency::Dict{Int, Vector{Int}})
@@ -270,7 +270,7 @@ Dict{Int64,Int64} with 9 entries:
 <ul>
 <li>Wikipedia contributors. "Degree (graph theory)". Wikipedia, The Free Encyclopedia. 24 Nov. 2016. Web. 18 Jul. 2017. https://en.wikipedia.org/wiki/Degree_(graph_theory)</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/8dae1414f540d4b416824018d9a0b345d092c48c/src/node_degrees.jl#L4-L40' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/01799159fe867ed6030d238b655d168d877d085e/src/node_degrees.jl#L4-L40' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.calculate_bandwidth-Tuple{Dict{Int64,Array{Int64,1}}}' href='#NodeNumbering.calculate_bandwidth-Tuple{Dict{Int64,Array{Int64,1}}}'>#</a>
 <strong><code>NodeNumbering.calculate_bandwidth</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>calculate_bandwidth(G::Dict{Int, Vector{Int}})
@@ -298,7 +298,7 @@ julia&gt; calculate_bandwidth(G)
 <ul>
 <li>Wikipedia contributors. "Band matrix." Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 28 Apr. 2017. Web. 15 Jul. 2017. https://en.wikipedia.org/wiki/Band_matrix.</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/8dae1414f540d4b416824018d9a0b345d092c48c/src/calc_bw.jl#L4-L32' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/01799159fe867ed6030d238b655d168d877d085e/src/calc_bw.jl#L4-L32' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.RCM-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Int64},Int64}' href='#NodeNumbering.RCM-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Int64},Int64}'>#</a>
 <strong><code>NodeNumbering.RCM</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
@@ -348,7 +348,7 @@ julia&gt; RCM(adjacency, degrees, P)
 <ul>
 <li>Wikipedia contributors. "Cuthill–McKee algorithm". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 11 Jul. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/8dae1414f540d4b416824018d9a0b345d092c48c/src/RCM.jl#L4-L53' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/01799159fe867ed6030d238b655d168d877d085e/src/RCM.jl#L4-L53' class='documenter-source'>source</a><br></p>
 <p><a id='NodeNumbering.create_adjacency_graph-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Symbol}}' href='#NodeNumbering.create_adjacency_graph-Tuple{Dict{Int64,Array{Int64,1}},Dict{Int64,Symbol}}'>#</a>
 <strong><code>NodeNumbering.create_adjacency_graph</code></strong> &mdash; <em>Method</em>.</p>
 <pre><code>create_adjacency_graph(elements::Dict{Int, Vector{Int}}, element_types::Dict{Int, Symbol})
@@ -386,7 +386,7 @@ Dict{Int64,Array{Int64,1}} with 9 entries:
 <ul>
 <li>Wikipedia contributors. "Adjacency list". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 7 Jun. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Adjacency_list</li>
 </ul>
-<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/8dae1414f540d4b416824018d9a0b345d092c48c/src/create_adjacency_graph.jl#L13-L50' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/JuliaFEM/NodeNumbering.jl/tree/01799159fe867ed6030d238b655d168d877d085e/src/create_adjacency_graph.jl#L13-L50' class='documenter-source'>source</a><br></p>
 <p><a id='Index-1'></a></p>
 <h2 id="index">Index</h2>
 <ul>
@@ -440,5 +440,5 @@ Dict{Int64,Array{Int64,1}} with 9 entries:
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-07-20 14:00:23
+Build Date UTC : 2017-07-21 15:56:05
 -->
