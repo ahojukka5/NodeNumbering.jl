@@ -6,20 +6,22 @@ using NodeNumbering
 using Base.Test
 
 function get_test_data()
-    #= testdata from: https://people.sc.fsu.edu/~jburkardt/m_src/rcm/rcm.html
+    #= testdata from:
+    https://people.sc.fsu.edu/~jburkardt/m_src/rcm/rcm.html
 
-		   5--7--6
-		   |  | /
-		4--8--2
-		|  |  |
-		9--1--3
-	=#
+       5--7--6
+       |  | /
+    4--8--2
+    |  |  |
+    9--1--3
 
-	elements = Dict{Int, Vector{Int}}(
-	    1 => [9, 1, 8, 4],
-	    2 => [1, 3, 2, 8],
-	    3 => [2, 7, 5, 8],
-	    4 => [2, 6, 7])
+    =#
+
+    elements = Dict{Int, Vector{Int}}(
+        1 => [9, 1, 8, 4],
+        2 => [1, 3, 2, 8],
+        3 => [2, 7, 5, 8],
+        4 => [2, 6, 7])
 
     element_types = Dict{Int, Vector{Symbol}}(
         1 => :Quad4,
@@ -72,10 +74,26 @@ end
 end
 =#
 
+# add unit test files to this list:
+test_files = String[]
+push!(test_files, "test_calc_bw.jl")
+push!(test_files, "test_create_adjacency_graph.jl")
+push!(test_files, "test_node_degrees.jl")
+push!(test_files, "test_RCM.jl")
+push!(test_files, "test_create_RCM_adjacency.jl")
+push!(test_files, "test_renumbering.jl")
+push!(test_files, "test_adjacency_visualization.jl")
+push!(test_files, "test_RCM_unconnected.jl")
+
+using TimerOutputs
+const to = TimerOutput()
 @testset "NodeNumbering.jl" begin
-    include("test_calc_bw.jl")
-    include("test_create_adjacency_graph.jl")
-		include("test_node_degrees.jl")
-    include("test_RCM.jl")
-		include("test_RCM_unconnected.jl")
+    for fn in test_files
+        timeit(to, fn) do
+            include(fn)
+        end
+    end
 end
+println()
+println("Test statistics:")
+println(to)
