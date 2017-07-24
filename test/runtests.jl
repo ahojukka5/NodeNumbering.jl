@@ -83,6 +83,10 @@ push!(test_files, "test_RCM.jl")
 push!(test_files, "test_create_RCM_adjacency.jl")
 push!(test_files, "test_renumbering.jl")
 push!(test_files, "test_adjacency_visualization.jl")
+<<<<<<< HEAD
+=======
+push!(test_files, "test_RCM_unconnected.jl")
+>>>>>>> 820bac22b14dbfe9cbbdb49a0f90099befb5b7c1
 
 using TimerOutputs
 const to = TimerOutput()
