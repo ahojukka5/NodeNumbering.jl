@@ -2,9 +2,9 @@
 # License is MIT: see https://github.com/JuliaFEM/NodeNumbering.jl/blob/master/LICENSE
 
 """
-    RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
+    RCM_unconnected(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P, Q, R)
 
-Calculate the Reverse Cuthill-McKee Algorithm for the adjacency graph.
+Calculate the Reverse Cuthill-McKee Algorithm for an unconnected adjacency graph. P, Q and R are given.
 
 # Examples
 
@@ -41,8 +41,16 @@ julia> degrees = Dict(
 
 julia> P = 9;
 
-julia> RCM(adjacency, degrees, P)
+julia> Q = 9;
+
+julia> R = 9;
+
+julia> RCM(adjacency, degrees)
 13-element Array{Int64,1}:
+ 10
+ 13
+ 12
+ 11
  6
  7
  2
@@ -52,10 +60,6 @@ julia> RCM(adjacency, degrees, P)
  1
  4
  9
- 10
- 11
- 12
- 11
 
 ```
 
@@ -63,17 +67,30 @@ julia> RCM(adjacency, degrees, P)
 
 * Wikipedia contributors. "Cuthill–McKee algorithm". Wikipedia, The Free Encyclopedia. Wikipedia, The Free Encyclopedia, 11 Jul. 2017. Web. 17 Jul. 2017. https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm
 """
-function RCM(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P::Int)
-    n = length(adjacency)
-    R = Int[P]  # Creating the CM-ordered list
+function RCM_unconnected(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P, Q, R)
+    n=length(adjacency)
+    println("n = ", n)
+    colored = Int[]
+    push!(colored, P)
     for i=1:n
-        t = sort(adjacency[R[i]], by=j->degrees[j])
-        for T in t
-            if !(T in R)
-                push!(R, T)
+        println("i = ", i)
+        if length(colored) < i
+          println("i! = ", i)
+          i = (i-1)
+          println("length! = ", length(colored))
+          push!(colored, Q, R)
+          continue
+        else
+          t=adjacency[colored[i]]
+          sort!(t, by=j->degrees[j])
+          for T in t
+            if in(T, colored) == false
+              push!(colored, T)
+              #delete!(degrees, T)
             end
+          end
         end
     end
-    new_order = reverse(R)
-    return new_order
+    neworder = reverse(colored)
+    return neworder
 end

@@ -12,6 +12,7 @@ DocTestSetup = quote
     using NodeNumbering: renumbering
     using NodeNumbering: create_RCM_adjacency
     using NodeNumbering: adjacency_visualization
+    using NodeNumbering: RCM_unconnected
 end
 ```
 
@@ -24,6 +25,7 @@ NodeNumbering.element_adjacencies
 ## Functions
 
 ```@docs
+NodeNumbering.RCM_unconnected(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P, Q, R)
 NodeNumbering.adjacency_visualization(RCM_adjacency::Dict{Int, Vector{Int}})
 NodeNumbering.create_RCM_adjacency(adjacency::Dict{Int,Vector{Int}}, finalorder::Dict{Int,Int})
 NodeNumbering.renumbering(neworder::Array{Int})

@@ -4,6 +4,8 @@
 using NodeNumbering
 
 P = 9
+Q = 11
+R = 12
 
 adjacency = Dict(
   2  => [6, 7, 3, 8],
@@ -36,8 +38,8 @@ degrees = Dict(
     12 => 2,
     13 => 2);
 
-@testset "The Reverse Cuthill-McKee algorithm for an unconnected graph" begin
-    expected = [6,7,2,5,3,8,1,4,9,10,11,12,13]
-    result = NodeNumbering.RCM(adjacency, degrees, P)
+@testset "The Reverse Cuthill-McKee algorithm for an unconnected graph." begin
+    expected = [10, 13, 12, 11, 6, 7, 2, 5, 3, 8, 1, 4, 9]
+    result = NodeNumbering.RCM_unconnected(adjacency, degrees, P, Q, R)
     @test result == expected
 end
