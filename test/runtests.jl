@@ -11,9 +11,9 @@ function get_test_data()
 
        5--7--6
        |  | /
-    4--8--2
-    |  |  |
-    9--1--3
+    4--8--2    13--12
+    |  |  |    |   |
+    9--1--3   10--11
 
     =#
 
@@ -83,6 +83,7 @@ push!(test_files, "test_RCM.jl")
 push!(test_files, "test_create_RCM_adjacency.jl")
 push!(test_files, "test_renumbering.jl")
 push!(test_files, "test_adjacency_visualization.jl")
+push!(test_files, "test_RCM_unconnected.jl")
 
 using TimerOutputs
 const to = TimerOutput()
