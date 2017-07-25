@@ -45,7 +45,7 @@ julia> Q = 9;
 
 julia> R = 9;
 
-julia> RCM(adjacency, degrees)
+julia> RCM_unconnected(adjacency, degrees, P, Q, R)
 13-element Array{Int64,1}:
  10
  13
