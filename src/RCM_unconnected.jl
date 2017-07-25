@@ -69,15 +69,10 @@ julia> RCM_unconnected(adjacency, degrees, P, Q, R)
 """
 function RCM_unconnected(adjacency::Dict{Int, Vector{Int}}, degrees::Dict{Int, Int}, P, Q, R)
     n=length(adjacency)
-    println("n = ", n)
     colored = Int[]
     push!(colored, P)
     for i=1:n
-        println("i = ", i)
         if length(colored) < i
-          println("i! = ", i)
-          i = (i-1)
-          println("length! = ", length(colored))
           push!(colored, Q, R)
           continue
         else
