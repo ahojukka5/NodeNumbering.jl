@@ -50,7 +50,7 @@ julia> P = 9;
 julia> Q = 12;
 
 julia> RCM(adjacency, degrees, P)
-9-element Array{Int64,1}:
+16-element Array{Int64,1}:
  16
  5
  14
