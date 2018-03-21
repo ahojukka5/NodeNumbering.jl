@@ -60,7 +60,7 @@ var documenterSearchIndex = {"docs": [
     "location": "api.html#NodeNumbering.element_adjacencies",
     "page": "API",
     "title": "NodeNumbering.element_adjacencies",
-    "category": "Constant",
+    "category": "constant",
     "text": "element_adjacencies\n\nThe Dict shows some element types and their node adjacencies. For example the element type Quad4 has four nodes/element so that node No. 1 is adjacent to nodes 2 and 4 etc.\n\n\n\n"
 },
 
